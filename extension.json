@@ -1,0 +1,54 @@
+{
+  "displayName": "Google AdWords",
+  "name": "google-adwords",
+  "platform": "web",
+  "version": "1.0.0",
+  "description": "Tracks conversions from users that click on your Google Ads.",
+  "author": {
+    "name": "Celeste Robinson"
+  },
+  "viewBasePath": "src/view/",
+  "configuration": {
+    "viewPath": "configuration/configuration.html",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "events": [
+    {
+      "displayName": "Page Load",
+      "name": "page-load",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/events/pageLoad.js"
+    },
+    {
+      "displayName": "Click",
+      "name": "click",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/events/click.js"
+    }
+  ],
+  "actions": [
+    {
+      "displayName": "Track Conversion",
+      "name": "track-conversion",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/trackConversion.js"
+    }
+  ],
+  "iconPath": "adwords-logo.svg"
+}
