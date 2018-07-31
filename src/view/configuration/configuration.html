@@ -17,34 +17,34 @@
     </label>
     </br>
     <label>
-      <input id="preventAddingVisitor" type="checkbox">
+      <input id="preventAddingVisitor" type="checkbox" value="true">
       Prevent gtag.js from adding website visitors to your remarketing lists. (optional)
     </label>
     </br>
     <label>
-      <input id="preventCookies" type="checkbox">
+      <input id="preventCookies" type="checkbox" value="true">
       Prevent gtag.js from setting first-party cookies on your site's domain. (optional)
     </label>
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
       var conversionIdInput = document.querySelector('#conversionId');
-      var preventAddingVisitor = document.querySelector('#preventAddingVisitor');
-      var preventCookies = document.querySelector('#preventCookies');
+      var preventAddingVisitor = document.getElementById('preventAddingVisitor');
+      var preventCookies = document.getElementById('preventCookies');
 
       window.extensionBridge.register({
         init: function(info) {
           if (info.settings) {
             conversionIdInput.value = info.settings.conversionId,
-            preventAddingVisitor = info.settings.preventAddingVisitor,
-            preventCookies = info.settings.preventCookies
+            preventAddingVisitor.checked = info.settings.preventAddingVisitor,
+            preventCookies.checked = info.settings.preventCookies
           }
         },
 
         getSettings: function() {
           return {
             conversionId: conversionIdInput.value,
-            preventAddingVisitor: preventAddingVisitor.value,
-            preventCookies: preventCookies.value
+            preventAddingVisitor: preventAddingVisitor.checked,
+            preventCookies: preventCookies.checked
           }
         },
 
