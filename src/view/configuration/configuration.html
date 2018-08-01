@@ -17,6 +17,12 @@
     </label>
     </br>
     <label>
+      Conversion Label
+      <input id="conversionLabel" type="text" required autofocus>
+      (Required)
+    </label>
+    </br>
+    <label>
       <input id="preventAddingVisitor" type="checkbox" value="true">
       Prevent gtag.js from adding website visitors to your remarketing lists. (optional)
     </label>
@@ -28,6 +34,7 @@
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
       var conversionIdInput = document.querySelector('#conversionId');
+      var conversionLabelInput = document.querySelector('#conversionLabel');
       var preventAddingVisitor = document.getElementById('preventAddingVisitor');
       var preventCookies = document.getElementById('preventCookies');
 
@@ -35,6 +42,7 @@
         init: function(info) {
           if (info.settings) {
             conversionIdInput.value = info.settings.conversionId,
+            conversionLabelInput.value = info.settings.conversionLabel,
             preventAddingVisitor.checked = info.settings.preventAddingVisitor,
             preventCookies.checked = info.settings.preventCookies
           }
@@ -43,13 +51,17 @@
         getSettings: function() {
           return {
             conversionId: conversionIdInput.value,
+            conversionLabel: conversionLabelInput.value,
             preventAddingVisitor: preventAddingVisitor.checked,
             preventCookies: preventCookies.checked
           }
         },
 
         validate: function() {
-          return conversionIdInput.checkValidity();
+          return (
+            conversionIdInput.checkValidity(),
+            conversionLabelInput.checkValidity()
+          )
         }
       });
     </script>

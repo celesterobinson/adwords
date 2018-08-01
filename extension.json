@@ -1,5 +1,5 @@
 {
-  "displayName": "Google AdWords",
+  "displayName": "Google Ads",
   "name": "google-adwords",
   "platform": "web",
   "version": "1.0.0",
@@ -16,28 +16,6 @@
       "properties": {}
     }
   },
-  "events": [
-    {
-      "displayName": "Page Load",
-      "name": "page-load",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/events/pageLoad.js"
-    },
-    {
-      "displayName": "Click",
-      "name": "click",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {}
-      },
-      "libPath": "src/lib/events/click.js"
-    }
-  ],
   "actions": [
     {
       "displayName": "Track Conversion",
@@ -50,5 +28,5 @@
       "libPath": "src/lib/actions/trackConversion.js"
     }
   ],
-  "iconPath": "adwords-logo.svg"
+  "iconPath": "ads-logo.svg"
 }
