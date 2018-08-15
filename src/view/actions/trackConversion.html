@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Extension Configuration</title>
+</head>
+<style>
+  input:invalid {
+    border: 1px solid red;
+  }
+</style>
+
+<body>
+  <form>
+    <h1>Configure New Conversion Tracker</h1>
+    <label>
+      Conversion ID
+      <input type="text" id="conversion-id" required autofocus>
+    </label>
+  </br>
+    <label>
+      Conversion Label
+      <input type="text" id="conversion-label" required>
+    </label>
+  </br>
+    <label>
+      Conversion Value
+      <input type="text" id="conversion-value">
+    </label>
+  </br>
+    <label>
+      Currency Code
+      <input type="text" id="currency-code">
+    </label>
+  </br>
+    <label>
+      Order ID
+      <input type="text" id="order-id">
+    </label>
+  </form>
+  <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script>
+    var conversionIdInput = document.querySelector('#conversion-id');
+    var conversionLabelInput = document.querySelector('#conversion-label');
+    var conversionValueInput = document.querySelector('#conversion-value');
+    var currencyCodeInput = document.querySelector('#currency-code');
+    var orderIdInput = document.querySelector('#order-id');
+
+    window.extensionBridge.register({
+      init: function (info) {
+        if (info.settings) {
+            conversionIdInput = info.settings.conversionId,
+            conversionLabelInput = info.settings.conversionLabel,
+            conversionValueInput = info.settings.conversionValue,
+            currencyCodeInput = info.settings.currencyCode
+            orderIdInput = info.settings.orderIdInput
+        }
+      },
+
+      getSettings: function () {
+        return {
+          conversionId: conversionIdInput.value,
+          conversionLabel: conversionLabelInput.value,
+          conversionValue: conversionValueInput.value,
+          currencyCode: currencyCodeInput.value,
+          orderId: orderIdInput.value
+        }
+      },
+
+      validate: function () {
+        return (
+          conversionIdInput.checkValidity(),
+          conversionLabelInput.checkValidity(),
+          conversionValueInput.checkValidity(),
+          currencyCodeInput.checkValidity(),
+          orderIdInput.checkValidity()
+        )
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -7,15 +7,8 @@
   "author": {
     "name": "Celeste Robinson"
   },
+  "iconPath": "ads-logo.svg",
   "viewBasePath": "src/view/",
-  "configuration": {
-    "viewPath": "configuration/configuration.html",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "type": "object",
-      "properties": {}
-    }
-  },
   "actions": [
     {
       "displayName": "Track Conversion",
@@ -23,10 +16,30 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "required": ["conversionId", "conversionLabel"],
+        "properties": {
+          "conversionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conversionLabel": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conversionValue": {
+            "type": "string"
+          },
+          "currencyCode": {
+            "type": "string",
+            "minLength": 1
+          },
+          "orderId": {
+            "type": "string"
+          }
+        }
       },
-      "libPath": "src/lib/actions/trackConversion.js"
+      "libPath": "src/lib/actions/trackConversion.js",
+      "viewPath": "actions/trackConversion.html"
     }
-  ],
-  "iconPath": "ads-logo.svg"
+  ]
 }

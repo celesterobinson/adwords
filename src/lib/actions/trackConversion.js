@@ -1,13 +1,18 @@
 'use strict';
+alert("We got to trackconversion.js")
+
 var loadGtag = turbine.getSharedModule('gtag.js', 'loadGtag');
-var extensionSettings = turbin.getExtensionSettings();
-var options = {
-  send_page_view: !extensionSettings.preventAddingVisitor,
-  conversion_linker: !extensionSettings.preventCookies
-};
 loadGtag();
-gtag('config', extensionSettings.conversionId, options );
+alert("We got passed loading gtag")
 
 module.exports = function(settings) {
-  gtag('event', 'conversion', {'send_to': extensionSettings.conversionId + '/' + extensionSettings.conversionLabel});
+  alert("we got inside this function");
+  gtag('config', settings.conversionId);
+  gtag('event', 'conversion', {
+    'send_to': settings.conversionId + '/' + settings.conversionLabel,
+    'conversionValue': Number(settings.conversionValue),
+    'currencyCode': settings.currencyCode,
+    'orderId': settings.orderId
+  });
+  alert("we finished");
 };
