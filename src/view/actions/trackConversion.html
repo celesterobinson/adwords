@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Extension Configuration</title>
+  <title>Action Configuration</title>
   <link rel="stylesheet" href="trackConversion.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
   </br>
     <label>
       Conversion Value
-      <input type="number" id="conversion-value">
+      <input type="text" id="conversion-value">
     </label>
   </br>
     <label>
@@ -45,11 +45,11 @@
     window.extensionBridge.register({
       init: function (info) {
         if (info.settings) {
-            conversionIdInput = info.settings.conversionId,
-            conversionLabelInput = info.settings.conversionLabel,
-            conversionValueInput = info.settings.conversionValue,
-            currencyCodeInput = info.settings.currencyCode
-            orderIdInput = info.settings.orderIdInput
+            conversionIdInput.value = info.settings.conversionId,
+            conversionLabelInput.value = info.settings.conversionLabel,
+            conversionValueInput.value = info.settings.conversionValue,
+            currencyCodeInput.value = info.settings.currencyCode,
+            orderIdInput.value = info.settings.orderId
         }
       },
 

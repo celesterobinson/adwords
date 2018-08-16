@@ -3,7 +3,7 @@
   "name": "google-adwords",
   "platform": "web",
   "version": "1.0.0",
-  "description": "Tracks conversions from users that click on your Google Ads.",
+  "description": "Tracks conversions from users that click on your Google Ads. You will need to also install the gtag.js extension and add it to your library, as Google Ads depends on it.",
   "author": {
     "name": "Celeste Robinson"
   },
