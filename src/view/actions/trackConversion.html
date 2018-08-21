@@ -4,75 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Action Configuration</title>
-  <link rel="stylesheet" href="trackConversion.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="../resources/css/trackConversion.css">
+  <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+  <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <script src="../resources/js/form.js"></script>
 </head>
 <body>
-  <form>
-    <h1>Configure New Conversion Tracker</h1>
-    <label>
-      Conversion ID
-      <input type="text" id="conversion-id" required autofocus>
-    </label>
-  </br>
-    <label>
-      Conversion Label
-      <input type="text" id="conversion-label" required>
-    </label>
-  </br>
-    <label>
-      Conversion Value
-      <input type="text" id="conversion-value">
-    </label>
-  </br>
-    <label>
-      Currency Code
-      <input type="text" id="currency-code">
-    </label>
-  </br>
-    <label>
-      Order ID
-      <input type="text" id="order-id">
-    </label>
-  </form>
-  <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+  <h1>Configure New Conversion Tracker</h1>
+  <div id="root"></div>
   <script>
-    var conversionIdInput = document.querySelector('#conversion-id');
-    var conversionLabelInput = document.querySelector('#conversion-label');
-    var conversionValueInput = document.querySelector('#conversion-value');
-    var currencyCodeInput = document.querySelector('#currency-code');
-    var orderIdInput = document.querySelector('#order-id');
-
-    window.extensionBridge.register({
-      init: function (info) {
-        if (info.settings) {
-            conversionIdInput.value = info.settings.conversionId,
-            conversionLabelInput.value = info.settings.conversionLabel,
-            conversionValueInput.value = info.settings.conversionValue,
-            currencyCodeInput.value = info.settings.currencyCode,
-            orderIdInput.value = info.settings.orderId
-        }
+    Form.create({
+      conversionId: {
+        title: 'Converstion ID',
+        required: true
       },
-
-      getSettings: function () {
-        return {
-          conversionId: conversionIdInput.value,
-          conversionLabel: conversionLabelInput.value,
-          conversionValue: conversionValueInput.value,
-          currencyCode: currencyCodeInput.value,
-          orderId: orderIdInput.value
-        }
+      conversionLabel: {
+        title: 'Conversion Label',
+        required: true
       },
-
-      validate: function () {
-        return (
-          conversionIdInput.checkValidity(),
-          conversionLabelInput.checkValidity(),
-          conversionValueInput.checkValidity(),
-          currencyCodeInput.checkValidity(),
-          orderIdInput.checkValidity()
-        )
+      conversionValue: {
+        title: 'Conversion Value'
+      },
+      currencyCode: {
+        title: 'Currency Code'
+      },
+      orderId: {
+        title: 'Order ID'
       }
-    });
+    }, document.getElementById('root'));
   </script>
 </body>
 </html>

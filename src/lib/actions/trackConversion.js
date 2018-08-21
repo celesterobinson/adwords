@@ -1,6 +1,6 @@
 'use strict';
 
-var loadGtag = turbine.getSharedModule('gtag.js', 'loadGtag');
+var loadGtag = turbine.getSharedModule('gtag.js', 'load-gtag');
 loadGtag();
 
 module.exports = function(settings) {

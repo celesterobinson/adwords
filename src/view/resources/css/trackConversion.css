@@ -1,0 +1,25 @@
+body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-element-button {
+  margin: 0 .5rem;
+}
+
+input {
+  width: 300px;
+}
+
+.error label,
+.error .pure-form-message-inline {
+  color: #cc0033;
+}
+
+.error input[type=text] {
+  background-color: #f4acac;
+  border: 1px solid #cc0033;
+  outline: none;
+}
