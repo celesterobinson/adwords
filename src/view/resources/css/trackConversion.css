@@ -2,24 +2,23 @@ body {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .data-element-button {
-  margin: 0 .5rem;
+  margin: 0 30px!important;
+  position: relative!important;
+  left: 10px!important;
+  top: 5px!important;
 }
 
-input {
-  width: 300px;
+.inputs {
+  display: flex;
 }
 
-.error label,
-.error .pure-form-message-inline {
-  color: #cc0033;
+.error {
+  border-bottom: solid 1px #c3291c!important;
 }
 
-.error input[type=text] {
-  background-color: #f4acac;
-  border: 1px solid #cc0033;
-  outline: none;
+.error-msg {
+  color: #c3291c;
 }

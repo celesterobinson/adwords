@@ -30,8 +30,7 @@
             "type": "string"
           },
           "currencyCode": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "orderId": {
             "type": "string"
