@@ -5,10 +5,10 @@ body {
 }
 
 .data-element-button {
-  margin: 0 30px!important;
-  position: relative!important;
-  left: 10px!important;
-  top: 5px!important;
+  margin: 0 30px;
+  position: relative;
+  left: 10px;
+  top: 5px;
 }
 
 .inputs {
@@ -16,7 +16,7 @@ body {
 }
 
 .error {
-  border-bottom: solid 1px #c3291c!important;
+  border-bottom: solid 1px #c3291c;
 }
 
 .error-msg {
